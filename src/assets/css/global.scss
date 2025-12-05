@@ -1,0 +1,48 @@
+@import './variables.scss';
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; padding: 0;
+  background-color: $theme-black;
+  color: $text-main;
+  font-family: $font-sans;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent; /* 移除手机点击高亮 */
+}
+
+/* 移动端基础容器调整 */
+.container { 
+  max-width: 1400px; margin: 0 auto; padding: 0 40px; 
+  @media (max-width: 768px) { padding: 0 20px; }
+}
+
+/* 动画类保持不变... */
+.anim-init { opacity: 0; transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
+.anim-init.fade-up { transform: translateY(60px); }
+.anim-active.fade-up { opacity: 1; transform: translateY(0); }
+.anim-init.slide-left { transform: translateX(50px); }
+.anim-active.slide-left { opacity: 1; transform: translateX(0); }
+.anim-init.scale-in { transform: scale(0.9); }
+.anim-active.scale-in { opacity: 1; transform: scale(1); }
+.anim-init.blur-in { filter: blur(20px); transform: scale(1.1); }
+.anim-active.blur-in { opacity: 1; filter: blur(0); transform: scale(1); }
+
+.btn-gold {
+  background: $theme-gold; color: #000; padding: 14px 40px; border: none;
+  font-size: 14px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
+  position: relative; overflow: hidden; transition: 0.4s;
+  &:hover { background: #fff; transform: translateY(-3px); }
+  @media (max-width: 768px) { width: 100%; text-align: center; padding: 12px 0; }
+}
+
+.section-padding { 
+  padding: 120px 0; 
+  @media (max-width: 768px) { padding: 60px 0; }
+}
+.section-title {
+  text-align: center; margin-bottom: 80px;
+  @media (max-width: 768px) { margin-bottom: 40px; }
+  h2 { font-size: 48px; margin-bottom: 20px; color: $theme-gold; @media (max-width: 768px) { font-size: 32px; } }
+  p { color: $text-muted; letter-spacing: 4px; text-transform: uppercase; font-size: 14px; }
+}
